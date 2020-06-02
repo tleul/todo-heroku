@@ -38,7 +38,7 @@ export const login = ({ email, password }) => async (dispatch) => {
 		};
 
 		const res = await API.post('/signin', body, config);
-		const token = res.data.token;
+		console.log(res.data);
 
 		dispatch({
 			type: LOGINSUCCESS,
@@ -67,7 +67,6 @@ export const register = ({ name, email, phone }) => async (dispatch) => {
 			type: REGISTERSUCCESS,
 			payload: res.data,
 		});
-		dispatch(loaduser());
 	} catch (error) {
 		console.log(error);
 		dispatch({
