@@ -17,7 +17,7 @@ export const loaduser = () => async (dispatch) => {
 	};
 
 	try {
-		const res = await API.get('/api/signin', config);
+		const res = await API.get('/signin', config);
 		dispatch({
 			type: LOADUSER,
 			payload: localStorage.token,
@@ -37,7 +37,7 @@ export const login = ({ email, password }) => async (dispatch) => {
 			},
 		};
 
-		const res = await API.post('/api/signin', body, config);
+		const res = await API.post('/signin', body, config);
 		const token = res.data.token;
 		console.log(token);
 		const getConfig = {
@@ -46,7 +46,7 @@ export const login = ({ email, password }) => async (dispatch) => {
 				'x-auth-token': token,
 			},
 		};
-		const userData = await API.get('/api/signin', getConfig);
+		const userData = await API.get('/signin', getConfig);
 
 		dispatch({
 			type: LOGINSUCCESS,
@@ -70,7 +70,7 @@ export const register = ({ name, email, phone }) => async (dispatch) => {
 			},
 		};
 
-		const res = await API.post('/api/register', body, config);
+		const res = await API.post('/register', body, config);
 		console.log(res);
 		dispatch({
 			type: REGISTERSUCCESS,
