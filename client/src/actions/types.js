@@ -1,0 +1,7 @@
+export const LOGINSUCCESS = 'LOGINSUCCESS';
+export const LOGINFAIL = 'LOGINFAIL';
+export const REGISTERSUCCESS = 'REGISTERSUCCESS';
+export const REGISTERFAIL = 'REGISTERFAIL';
+export const TODO_SUCCESS = 'TODO_SUCCESS';
+export const LOADUSER = 'LOADUSER';
+export const LOGOUT = 'LOGOUT';
