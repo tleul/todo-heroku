@@ -26,6 +26,7 @@ router.post(
 		}
 
 		const { name, email, phone } = req.body;
+		console.log(req.body);
 		try {
 			const userExist = await UserSchema.findOne({ email });
 
