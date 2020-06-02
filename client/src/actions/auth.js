@@ -39,21 +39,12 @@ export const login = ({ email, password }) => async (dispatch) => {
 
 		const res = await API.post('/signin', body, config);
 		const token = res.data.token;
-		console.log(token);
-		const getConfig = {
-			headers: {
-				'Content-Type': 'application/json',
-				'x-auth-token': token,
-			},
-		};
-		const userData = await API.get('/signin', getConfig);
 
 		dispatch({
 			type: LOGINSUCCESS,
 			payload: res.data,
 			userData: userData,
 		});
-		dispatch(loaduser());
 	} catch (error) {
 		console.log(error);
 		dispatch({
