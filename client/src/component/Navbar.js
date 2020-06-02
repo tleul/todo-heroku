@@ -30,7 +30,6 @@ const Navbar = ({ userData, isAuthenticated, logout }) => {
 			<h1>
 				<Link to='/'>
 					<i className='fas fa-house-user'></i>Welcome{' '}
-					{isAuthenticated ? userData.name : ''}
 				</Link>
 			</h1>
 			<ul>
