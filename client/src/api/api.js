@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-	baseURL: `https://mtfirsttodo.herokuapp.com`,
+	baseURL: `process.env.NODE_ENV`,
 });
