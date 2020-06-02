@@ -3,13 +3,17 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
+	"engines": {
+		"node": "12.3.x",
+		"npm": "6.x"
+	},
 	"directories": {
 		"lib": "lib"
 	},
 	"scripts": {
 		"build": "cd client && npm run build",
 		"install-client": "cd client && npm install",
-		"heroku-postbuild": " npm  run install-client && npm run build",
+		"heroku-postbuild": " npm run install-client && npm run build",
 		"start": "node server.js",
 		"server": "nodemon server.js",
 		"client": "npm start --prefix client",
