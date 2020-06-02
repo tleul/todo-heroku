@@ -13,12 +13,6 @@ import store from './store';
 import { loaduser } from './actions/auth';
 
 const App = () => {
-	useEffect(() => {
-		if (localStorage.token) {
-			store.dispatch(loaduser());
-		}
-	});
-
 	return (
 		<Provider store={store}>
 			<Router>

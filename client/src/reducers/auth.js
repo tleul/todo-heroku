@@ -34,12 +34,6 @@ export default function (state = initialState, action) {
 				isAuthenticated: false,
 				user: payload,
 			};
-		case LOADUSER:
-			return {
-				...state,
-				isAuthenticated: true,
-				user: userData,
-			};
 
 		default:
 			return state;
