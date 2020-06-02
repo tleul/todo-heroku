@@ -62,13 +62,13 @@ export const register = ({ name, email, phone }) => async (dispatch) => {
 		};
 
 		const res = await API.post('/register', body, config);
-		console.log(res);
+
 		dispatch({
 			type: REGISTERSUCCESS,
 			payload: res.data,
 		});
 	} catch (error) {
-		console.log(error);
+		console.log(error.message);
 		dispatch({
 			type: REGISTERFAIL,
 		});

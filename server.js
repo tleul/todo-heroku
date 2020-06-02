@@ -2,12 +2,14 @@ const express = require('express');
 const config = require('./config/config');
 const dbConnect = require('./config/db');
 const proxy = require('http-proxy-middleware');
+const cors = require('cors');
 
 const morgan = require('morgan');
 const app = express();
 
 dbConnect();
-app.use(express.json({ extended: false }));
+app.use(cors());
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use((req, res, next) => {
 	res.header('Access-Control-Allow-Origin', '*');

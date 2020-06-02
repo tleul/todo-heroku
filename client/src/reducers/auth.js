@@ -11,7 +11,6 @@ const initialState = {
 	token: localStorage.getItem('token'),
 	isAuthenticated: false,
 	user: null,
-	userData: null,
 };
 
 export default function (state = initialState, action) {
@@ -25,7 +24,6 @@ export default function (state = initialState, action) {
 				...state,
 				isAuthenticated: true,
 				user: payload,
-				userData: userData,
 			};
 		case LOGINFAIL:
 		case REGISTERFAIL:
@@ -40,7 +38,7 @@ export default function (state = initialState, action) {
 			return {
 				...state,
 				isAuthenticated: true,
-				userData: userData,
+				user: userData,
 			};
 
 		default:
