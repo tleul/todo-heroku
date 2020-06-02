@@ -1,6 +1,6 @@
 module.exports = {
 	port: process.env.PORT || 5000,
 	db:
-		'mongodb+srv://todo2020:todo2020@cluster0-9wb4c.mongodb.net/test?retryWrites=true&w=majority',
+		'mongodb://heroku_85xfn4t7:glr47m5dq14l2l92ur8dtcmdhm@ds139956.mlab.com:39956/heroku_85xfn4t7',
 	jwtsecret: 'ethiopia',
 };

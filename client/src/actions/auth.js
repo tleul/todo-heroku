@@ -59,16 +59,14 @@ export const register = ({ name, email, phone }) => async (dispatch) => {
 				'Content-Type': 'application/json',
 			},
 		};
-		console.log(body);
+
 		const res = await API.post('/register', body, config);
-		console.log('res');
-		console.log(res);
+
 		dispatch({
 			type: REGISTERSUCCESS,
 			payload: res.data,
 		});
 	} catch (error) {
-		console.log('error');
 		console.log(error);
 		dispatch({
 			type: REGISTERFAIL,
