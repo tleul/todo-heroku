@@ -30,5 +30,8 @@
 		"nodemailer": "^6.4.6",
 		"nodemon": "^2.0.4",
 		"react-scratchcard": "^1.1.2"
+	},
+	"devDependencies": {
+		"http-proxy-middleware": "^1.0.4"
 	}
 }

@@ -1,6 +1,8 @@
 const express = require('express');
 const config = require('./config/config');
 const dbConnect = require('./config/db');
+const proxy = require('http-proxy-middleware');
+
 const morgan = require('morgan');
 const app = express();
 
@@ -21,6 +23,12 @@ app.use((req, res, next) => {
 	);
 	next();
 });
+// place in src with index.js no need to import anywhere
+
+module.exports = function (app) {
+	// add other server routes to path array
+	app.use(proxy(['/api'], { target: 'http://localhost:5000' }));
+};
 app.use('/api/register', require('./router/register'));
 app.use('/api/signin', require('./router/auth'));
 app.use('/api/addtodo', require('./router/addtodo'));
