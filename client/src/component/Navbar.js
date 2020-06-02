@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { logout } from '../actions/auth';
-const Navbar = ({ userData, isAuthenticated, logout }) => {
+const Navbar = ({ isAuthenticated, logout, user }) => {
 	const userPage = (
 		<ul>
 			<li>
@@ -29,7 +29,7 @@ const Navbar = ({ userData, isAuthenticated, logout }) => {
 		<nav className='navbar bg-dark'>
 			<h1>
 				<Link to='/'>
-					<i className='fas fa-house-user'></i>Welcome{' '}
+					<i className='fas fa-house-user'></i>Welcome
 				</Link>
 			</h1>
 			<ul>
@@ -42,10 +42,12 @@ Navbar.propTypes = {
 	userData: PropTypes.object,
 	isAuthenticated: PropTypes.bool,
 	logout: PropTypes.func.isRequired,
+	user: PropTypes.object,
 };
 const mapStateToProps = (state) => ({
 	userData: state.auth.userData,
 	isAuthenticated: state.auth.isAuthenticated,
+	user: state.auth.user,
 });
 
 export default connect(mapStateToProps, { logout })(Navbar);

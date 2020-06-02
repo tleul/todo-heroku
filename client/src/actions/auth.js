@@ -18,12 +18,11 @@ export const loaduser = () => async (dispatch) => {
 
 	try {
 		const res = await API.get('/signin', config);
+
 		dispatch({
 			type: LOADUSER,
-			payload: localStorage.token,
-			userData: res.data,
+			payload: res.data,
 		});
-		return res.data;
 	} catch (error) {
 		console.log('no user found');
 	}
@@ -44,6 +43,7 @@ export const login = ({ email, password }) => async (dispatch) => {
 			type: LOGINSUCCESS,
 			payload: res.data,
 		});
+		dispatch(loaduser);
 	} catch (error) {
 		console.log(error);
 		dispatch({

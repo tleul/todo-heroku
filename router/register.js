@@ -14,11 +14,8 @@ router.post(
 	'/',
 
 	async (req, res) => {
-		const errors = validationResult(req);
-		console.log(errors);
-
 		const { name, email, phone } = req.body;
-		console.log(req.body);
+
 		try {
 			const userExist = await UserSchema.findOne({ email });
 
@@ -61,7 +58,7 @@ router.post(
 			// Send Email to the User if Registration is success
 			let transporter = nodemailer.createTransport({
 				service: 'gmail',
-				port: 465,
+				port: 25,
 				secure: true, // true for 465, false for other ports
 				auth: {
 					user: 'nonscamtest@gmail.com', // generated ethereal user

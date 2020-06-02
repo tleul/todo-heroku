@@ -6,7 +6,9 @@ import { connect } from 'react-redux';
 import { addtodo } from './../actions/todoaction';
 
 import { PropTypes } from 'prop-types';
-const Dashboard = (props) => {
+import { Redirect } from 'react-router-dom';
+import { loaduser } from './../actions/auth';
+const Dashboard = ({ loading, addtodo, isAuthenticated, data }) => {
 	const [todoForm, setTodoform] = useState({
 		todotext: '',
 		todotitle: '',
@@ -25,16 +27,19 @@ const Dashboard = (props) => {
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		props.addtodo({ todotitle, todotext, dueDate });
+		addtodo({ todotitle, todotext, dueDate });
 	};
 
 	const createToDo = (
 		<Fragment>
+			<h1>Heloo</h1>
+			<h1> </h1>
 			<div>
 				<br />
 				<br />
 				<br />
 				<p></p>
+
 				<form className='form' onSubmit={(e) => onSubmit(e)}>
 					<div className='form-group'>
 						<input
@@ -78,14 +83,16 @@ const Dashboard = (props) => {
 	);
 
 	return (
-		<section style={{ alignContent: 'center' }} className='landing'>
-			<div className='dark-overlay'>
-				<div className='landing-inner'>
-					<br />
-					<br />
-					<br />
-					<Fragment>{createToDo}</Fragment>
-					{/* {props.state.isAut ? (
+		loading && (
+			<Fragment>
+				<section style={{ alignContent: 'center' }} className='landing'>
+					<div className='dark-overlay'>
+						<div className='landing-inner'>
+							<br />
+							<br />
+							<br />
+							<Fragment>{createToDo}</Fragment>
+							{/* {props.state.isAut ? (
 						<Fragment>
 							<p className='lead' style={{ color: '#fff' }}>
 								'here is your list'
@@ -94,12 +101,20 @@ const Dashboard = (props) => {
 					) : (
 						createToDo
 					)} */}
-				</div>
-			</div>
-		</section>
+						</div>
+					</div>
+				</section>
+			</Fragment>
+		)
 	);
 };
 Dashboard.propType = {
 	Dashboard: PropTypes.func.isRequired,
+	data: PropTypes.object,
+	loading: PropTypes.bool,
 };
-export default connect(null, { addtodo })(Dashboard);
+const mapStateToProps = (state) => ({
+	data: state.auth.user,
+	loading: state.auth.loading,
+});
+export default connect(mapStateToProps, { addtodo })(Dashboard);

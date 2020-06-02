@@ -22,7 +22,9 @@ const Signup = (props) => {
 		e.preventDefault();
 		props.register({ name, email, phone });
 	};
-
+	if (props.isAuthenticated) {
+		return <Redirect to='/dashboard' />;
+	}
 	return (
 		<Fragment>
 			<section className='form-section'>
