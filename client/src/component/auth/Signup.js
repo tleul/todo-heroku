@@ -21,6 +21,7 @@ const Signup = (props) => {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		props.register({ name, email, phone });
+		console.log('recived');
 	};
 
 	return (

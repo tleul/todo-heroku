@@ -52,6 +52,7 @@ export const login = ({ email, password }) => async (dispatch) => {
 	}
 };
 export const register = ({ name, email, phone }) => async (dispatch) => {
+	console.log('coming');
 	try {
 		const body = JSON.stringify({ name, email, phone });
 		const config = {
