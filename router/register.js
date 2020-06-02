@@ -12,20 +12,10 @@ const { check, validationResult } = require('express-validator');
 
 router.post(
 	'/',
-	[
-		check('name', 'Please Enter  Name').notEmpty(),
-		check('email', 'Please Enter  Email').isEmail(),
-		check('phone', 'Please Enter  Phone').isLength({ min: 10 }),
-	],
 
 	async (req, res) => {
 		const errors = validationResult(req);
 		console.log(errors);
-		console.log('server');
-		console.log(errors);
-		if (!errors.isEmpty()) {
-			return res.status(400).json({ errors: errors.array() });
-		}
 
 		const { name, email, phone } = req.body;
 		console.log(req.body);
