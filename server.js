@@ -2,6 +2,7 @@ const express = require('express');
 const config = require('./config/config');
 const dbConnect = require('./config/db');
 const proxy = require('http-proxy-middleware');
+const http = require('http');
 const cors = require('cors');
 
 const morgan = require('morgan');
@@ -10,7 +11,7 @@ const app = express();
 dbConnect();
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use((req, res, next) => {
 	res.header('Access-Control-Allow-Origin', '*');
 	res.header(
@@ -42,6 +43,7 @@ module.exports = function (app) {
 app.use('/api/register', require('./router/register'));
 app.use('/api/signin', require('./router/auth'));
 app.use('/api/addtodo', require('./router/addtodo'));
+
 app.listen(
 	config.port,
 	console.log(' ---Server  $$ connected--- ' + config.port),
