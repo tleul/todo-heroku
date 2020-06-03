@@ -47,6 +47,7 @@ const Dashboard = ({
 			You Have Todo
 		</p>
 	);
+
 	const createToDo = (
 		<Fragment>
 			<section className='landing'>
@@ -118,7 +119,7 @@ const Dashboard = ({
 Dashboard.propType = {
 	gettodo: PropTypes.func.isRequired,
 	addtodo: PropTypes.func.isRequired,
-	todo: PropTypes.object,
+	todo: PropTypes.array,
 	loading: PropTypes.bool,
 	isAuthenticated: PropTypes.bool.isRequired,
 };

@@ -1,7 +1,7 @@
 import { GETTODO, CLEAR_TODO } from './../actions/types';
 
 const initialState = {
-	todo: null,
+	todo: [],
 	loading: false,
 };
 
@@ -10,7 +10,7 @@ export default function (state = initialState, action) {
 	switch (type) {
 		case GETTODO:
 			return {
-				todo: payload,
+				todo: payload.todo,
 				loading: true,
 			};
 		case CLEAR_TODO:

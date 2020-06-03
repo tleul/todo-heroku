@@ -252,7 +252,7 @@ img {
 }
 .table-btn {
 	display: inline-block;
-	background: var(--light-color);
+	background: lightcoral;
 	color: #333;
 	padding: 0.4rem 1.3rem;
 	font-size: 1rem;
@@ -261,6 +261,10 @@ img {
 	margin-right: 0.5rem;
 	transition: opacity 0.2s ease-in;
 	outline: none;
+}
+.table-btn:hover {
+	color: lightgreen;
+	background: maroon;
 }
 .landing {
 	position: relative;

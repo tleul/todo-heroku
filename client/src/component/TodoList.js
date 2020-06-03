@@ -10,8 +10,8 @@ const TodoList = ({ loading, todo, gettodo }) => {
 	useEffect(() => {
 		gettodo();
 	}, []);
-
-	const todoTabel = todo.todo.todo.map((data) => (
+	console.log(todo.length);
+	const todoTabel = todo.map((data) => (
 		<tr key={data._id} className='raw'>
 			<td>{data.todotitle}</td>
 			<td>{data.todotext}</td>
@@ -24,7 +24,7 @@ const TodoList = ({ loading, todo, gettodo }) => {
 			<td>{moment(data.dueDate).from(data.createdDate)}</td>
 			<td>
 				{' '}
-				<button classname='table-btn'>{'    '}Delete</button>
+				<button className='table-btn'>{'    '}Delete</button>
 			</td>
 		</tr>
 	));
@@ -46,7 +46,7 @@ const TodoList = ({ loading, todo, gettodo }) => {
 								<strong>Date created </strong>
 							</td>
 							<td role='columnheader'>
-								<strong>Due Date </strong>
+								<strong>Due ` ` Date </strong>
 							</td>
 							<td role='columnheader'>
 								<strong>Expires On</strong>
@@ -61,12 +61,12 @@ const TodoList = ({ loading, todo, gettodo }) => {
 };
 
 TodoList.propTypes = {
-	todo: PropTypes.object,
+	todo: PropTypes.array,
 	loading: PropTypes.bool,
 	gettodo: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({
-	todo: state.todo,
+	todo: state.todo.todo,
 	loading: state.todo.loading,
 });
 export default connect(mapStateToProps, { gettodo })(TodoList);
