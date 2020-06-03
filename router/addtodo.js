@@ -17,9 +17,8 @@ router.get(
 			if (!userTodo) {
 				res.json(userTodo);
 			}
-		} catch (error) {
-			console.log(error.message);
-		}
+			res.json(userTodo);
+		} catch (error) {}
 	},
 );
 

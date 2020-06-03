@@ -7,24 +7,25 @@ import {
 	REGISTERSUCCESS,
 	LOADUSER,
 	LOGOUT,
+	LOADUSER_FAIL,
+	CLEAR_TODO,
 } from './types';
+
+import setauthToken from './../api/setToken';
 export const loaduser = () => async (dispatch) => {
-	const config = {
-		headers: {
-			'Content-Type': 'application/json',
-			'x-auth-token': localStorage.token,
-		},
-	};
-
+	if (localStorage.token) {
+		setauthToken(localStorage.token);
+	}
 	try {
-		const res = await API.get('/signin', config);
-
+		const res = await API.get('/signin');
 		dispatch({
 			type: LOADUSER,
 			payload: res.data,
 		});
 	} catch (error) {
-		console.log('no user found');
+		dispatch({
+			type: LOADUSER_FAIL,
+		});
 	}
 };
 export const login = ({ email, password }) => async (dispatch) => {
@@ -43,7 +44,7 @@ export const login = ({ email, password }) => async (dispatch) => {
 			type: LOGINSUCCESS,
 			payload: res.data,
 		});
-		dispatch(loaduser);
+		dispatch(loaduser());
 	} catch (error) {
 		console.log(error);
 		dispatch({
@@ -77,5 +78,8 @@ export const logout = () => (dispatch) => {
 	console.log('clicked');
 	dispatch({
 		type: LOGOUT,
+	});
+	dispatch({
+		type: CLEAR_TODO,
 	});
 };

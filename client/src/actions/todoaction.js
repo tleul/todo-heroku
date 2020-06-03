@@ -1,26 +1,32 @@
 import API from '../api/api';
 
-import { TODO_SUCCESS } from './types';
+import { GETTODO } from './types';
 export const addtodo = ({ todotitle, todotext, dueDate }) => async (
 	dispatch,
 ) => {
 	try {
 		const body = JSON.stringify({ todotitle, todotext, dueDate });
-		const config = {
-			headers: {
-				'Content-Type': 'application/json',
-				'x-auth-token': localStorage.token,
-			},
-		};
 
-		const res = await API.post('/api/addtodo', body, config);
+		const res = await API.post('/addtodo', body);
 		console.log(res);
 		dispatch({
-			type: TODO_SUCCESS,
+			type: GETTODO,
 			payload: res.data,
 		});
 	} catch (error) {
 		console.log(error);
+	}
+};
+export const gettodo = () => async (dispatch) => {
+	try {
+		const res = await API.get('/addtodo');
+
+		dispatch({
+			type: GETTODO,
+			payload: res.data,
+		});
+	} catch (error) {
+		console.log('error');
 	}
 };
 // export const deletetodo = ({ id }) => async (dispatch) => {

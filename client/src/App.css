@@ -63,6 +63,9 @@
 .py-5 {
 	padding: 5rem 0;
 }
+input {
+	background-color: royalblue;
+}
 .container {
 	max-width: 1100px;
 	margin: auto;
@@ -71,6 +74,7 @@
 	margin-top: 6rem;
 	margin-bottom: 3rem;
 }
+
 .x-large {
 	font-size: 4rem;
 	line-height: 1.2;
@@ -128,7 +132,7 @@
 }
 .btn.btn-primary {
 	background: none;
-	color: white;
+	color: orangered;
 }
 
 .btn.btn-dark {
@@ -169,7 +173,7 @@
 .form-text {
 	display: block;
 	margin-top: 0.3rem;
-	color: whitesmoke;
+	color: black;
 }
 .form input[type='text'],
 .form input[type='email'],
@@ -196,7 +200,7 @@ body {
 	font-family: 'Fira Sans', sans-serif;
 	font-size: 1rem;
 	line-height: 1.6;
-	background-color: #fff;
+	background-color: turquoise;
 	color: #fff;
 }
 a {
@@ -246,15 +250,28 @@ img {
 .form-sign:hover {
 	background-color: darkmagenta;
 }
+.table-btn {
+	display: inline-block;
+	background: var(--light-color);
+	color: #333;
+	padding: 0.4rem 1.3rem;
+	font-size: 1rem;
+	border: none;
+	cursor: pointer;
+	margin-right: 0.5rem;
+	transition: opacity 0.2s ease-in;
+	outline: none;
+}
 .landing {
 	position: relative;
 
 	background: url('./img/bg-1.jpg') no-repeat center center/cover;
 	height: 100vh;
 }
+
 .landing-inner {
 	color: white;
-	padding-top: 0;
+	padding-top: 10rem;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -270,8 +287,21 @@ img {
 	.form-section {
 		padding-top: 10rem;
 	}
+	body {
+		background-color: rosybrown;
+	}
 	.container {
-		margin-top: 200px;
+		color: black;
+		margin-top: 3rem;
+	}
+	.landing-inner {
+		margin-top: 2rem;
+	}
+	.form {
+		margin-top: 2rem;
+	}
+	body {
+		background-color: white;
 	}
 
 	.hide-sm {
@@ -340,7 +370,12 @@ img {
 	.profile-about .skills {
 		flex-direction: column;
 	}
-
+	.todo-top {
+		display: flex;
+		padding-top: 0;
+		flex-direction: column;
+		text-align: center;
+	}
 	.dash-buttons a {
 		display: block;
 		width: 100%;
@@ -353,5 +388,14 @@ img {
 	.post a,
 	.post button {
 		padding: 0.3rem 0.4rem;
+	}
+	.btn {
+		background: none;
+		color: #dc3545;
+		border-top: #efa2a9;
+		border-style: groove;
+	}
+	.btn:hover {
+		color: black;
 	}
 }

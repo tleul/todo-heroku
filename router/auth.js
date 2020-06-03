@@ -58,7 +58,7 @@ router.post(
 					if (err) {
 						throw err;
 					}
-					res.json({ token, userExist });
+					res.json({ token });
 				},
 			);
 		} catch (err) {
