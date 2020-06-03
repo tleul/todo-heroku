@@ -16,6 +16,7 @@ export const loaduser = () => async (dispatch) => {
 	if (localStorage.token) {
 		setauthToken(localStorage.token);
 	}
+
 	try {
 		const res = await API.get('/signin');
 		console.log(res);
