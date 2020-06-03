@@ -10,7 +10,7 @@ const TodoList = ({ loading, todo, gettodo }) => {
 	useEffect(() => {
 		gettodo();
 	}, []);
-	console.log(todo.length);
+
 	const todoTabel = todo.map((data) => (
 		<tr key={data._id} className='raw'>
 			<td>{data.todotitle}</td>
@@ -46,7 +46,7 @@ const TodoList = ({ loading, todo, gettodo }) => {
 								<strong>Date created </strong>
 							</td>
 							<td role='columnheader'>
-								<strong>Due ` ` Date </strong>
+								<strong>Due Date </strong>
 							</td>
 							<td role='columnheader'>
 								<strong>Expires On</strong>
@@ -61,8 +61,8 @@ const TodoList = ({ loading, todo, gettodo }) => {
 };
 
 TodoList.propTypes = {
-	todo: PropTypes.array,
-	loading: PropTypes.bool,
+	todo: PropTypes.array.isRequired,
+	loading: PropTypes.bool.isRequired,
 	gettodo: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({

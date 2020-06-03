@@ -14,10 +14,7 @@ router.get(
 		try {
 			const userTodo = await UserTodo.findOne({ user: req.user.id });
 
-			if (!userTodo) {
-				res.json(userTodo);
-			}
-			res.json(userTodo);
+			res.json({ userTodo });
 		} catch (error) {}
 	},
 );
