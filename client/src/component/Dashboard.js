@@ -42,7 +42,11 @@ const Dashboard = ({
 	useEffect(() => {
 		gettodo();
 	}, [gettodo]);
-
+	const disp = (
+		<p style={{ color: 'blue' }} className='lead'>
+			You Have {loading && todo ? todo.todo.length : 'No'} Todo
+		</p>
+	);
 	const createToDo = (
 		<Fragment>
 			<section className='landing'>
@@ -54,10 +58,8 @@ const Dashboard = ({
 							onClick={(e) => toggleTodo(!displayTodo)}
 							className='btn'
 						/>
-						<p style={{ color: 'blue' }} className='lead'>
-							You Have {loading && todo ? todo.todo.length : 'No'}{' '}
-							Todo
-						</p>
+						{todo && disp}
+
 						<div className='form-group'>
 							<input
 								type='text'

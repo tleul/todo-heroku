@@ -77,7 +77,7 @@ td {
 	td:nth-of-type(4):before {
 		content: 'Due Date';
 	}
-	td:nth-of-type(4):before {
+	td:nth-of-type(5):before {
 		content: 'expired on';
 	}
 }
