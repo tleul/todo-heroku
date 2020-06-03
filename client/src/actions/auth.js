@@ -18,10 +18,10 @@ export const loaduser = () => async (dispatch) => {
 	}
 	try {
 		const res = await API.get('/signin');
-
+		console.log(res);
 		dispatch({
 			type: LOADUSER,
-			payload: res.data,
+			payload: JSON.stringify(res.data),
 		});
 	} catch (error) {
 		dispatch({

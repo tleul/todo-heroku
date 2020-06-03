@@ -23,7 +23,7 @@ export const gettodo = () => async (dispatch) => {
 
 		dispatch({
 			type: GETTODO,
-			payload: res.data,
+			payload: JSON.stringify(res.data),
 		});
 	} catch (error) {
 		console.log('error');
