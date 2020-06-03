@@ -10,7 +10,7 @@ export default function (state = initialState, action) {
 	switch (type) {
 		case GETTODO:
 			return {
-				todo: payload.todo,
+				todo: payload,
 				loading: true,
 			};
 		case CLEAR_TODO:
