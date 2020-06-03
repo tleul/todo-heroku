@@ -44,7 +44,7 @@ const Dashboard = ({
 	}, [gettodo]);
 	const disp = (
 		<p style={{ color: 'blue' }} className='lead'>
-			You Have {loading && todo ? todo.todo.length : 'No'} Todo
+			You Have Todo
 		</p>
 	);
 	const createToDo = (

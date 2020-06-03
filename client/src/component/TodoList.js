@@ -12,23 +12,21 @@ const TodoList = ({ loading, todo, gettodo }) => {
 	}, []);
 
 	const todoTabel = todo.todo.todo.map((data) => (
-		<Fragment>
-			<tr key={data._id} className='raw'>
-				<td>{data.todotitle}</td>
-				<td>{data.todotext}</td>
-				<td>
-					<Moment format='D MMM YYYY'>{data.createdDate}</Moment>
-				</td>
-				<td>
-					<Moment format='D MMM YYYY'>{data.dueDate}</Moment>
-				</td>
-				<td>{moment(data.dueDate).from(data.createdDate)}</td>
-				<td>
-					{' '}
-					<button classname='table-btn'>{'    '}Delete</button>
-				</td>
-			</tr>
-		</Fragment>
+		<tr key={data._id} className='raw'>
+			<td>{data.todotitle}</td>
+			<td>{data.todotext}</td>
+			<td>
+				<Moment format='D MMM YYYY'>{data.createdDate}</Moment>
+			</td>
+			<td>
+				<Moment format='D MMM YYYY'>{data.dueDate}</Moment>
+			</td>
+			<td>{moment(data.dueDate).from(data.createdDate)}</td>
+			<td>
+				{' '}
+				<button classname='table-btn'>{'    '}Delete</button>
+			</td>
+		</tr>
 	));
 
 	return (
