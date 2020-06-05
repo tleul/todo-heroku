@@ -20,10 +20,10 @@ export const addtodo = ({ todotitle, todotext, dueDate }) => async (
 export const gettodo = () => async (dispatch) => {
 	try {
 		const res = await API.get('/addtodo');
-
+		console.log(res);
 		dispatch({
 			type: GETTODO,
-			payload: res.data,
+			payload: res,
 		});
 	} catch (error) {
 		console.log('error');

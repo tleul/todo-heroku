@@ -7,8 +7,8 @@ body {
 }
 
 td {
-	padding-left: 5rem;
-	padding-top: 10px;
+	padding-left: 3rem;
+	padding-top: 5px;
 	padding-bottom: 10px;
 }
 /*  */
@@ -65,19 +65,17 @@ td {
 		Label the data
     You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
 		*/
+
 	td:nth-of-type(1):before {
-		content: 'Todo title';
-	}
-	td:nth-of-type(2):before {
 		content: 'Todo Discription';
 	}
-	td:nth-of-type(3):before {
+	td:nth-of-type(2):before {
 		content: 'Created Date';
 	}
-	td:nth-of-type(4):before {
+	td:nth-of-type(3):before {
 		content: 'Due Date';
 	}
-	td:nth-of-type(5):before {
+	td:nth-of-type(4):before {
 		content: 'expired on';
 	}
 }
