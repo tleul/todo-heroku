@@ -17,6 +17,9 @@ const Dashboard = ({
 	addtodo,
 	isAuthenticated,
 }) => {
+	useEffect(() => {
+		gettodo();
+	}, [gettodo]);
 	const [displayTodo, toggleTodo] = useState(true);
 	const [todoForm, setTodoform] = useState({
 		todotext: '',
@@ -26,6 +29,9 @@ const Dashboard = ({
 		dueDate: new Date(),
 	});
 	const { todotext, todotitle } = todoForm;
+	const [totalTodo, setTodo] = useState({
+		total: todo.length,
+	});
 	const { dueDate } = startDate;
 
 	const onChange = (e) =>
@@ -36,21 +42,21 @@ const Dashboard = ({
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
+
 		addtodo({ todotitle, todotext, dueDate });
+		setTodo({ total: todo.length });
 	};
 
-	useEffect(() => {
-		gettodo();
-	}, [gettodo]);
 	const disp = (
 		<p style={{ color: 'blue' }} className='lead'>
-			You Have Todo
+			You Have {totalTodo.total} Todo
 		</p>
 	);
 
 	const createToDo = (
 		<Fragment>
 			<section className='landing'>
+				<h1>Heloo</h1>
 				<div className='landing-inner'>
 					<form className='form' onSubmit={(e) => onSubmit(e)}>
 						<input
@@ -109,22 +115,22 @@ const Dashboard = ({
 	}
 
 	return (
-		loading && (
-			<Fragment>
-				<Fragment>{displayTodo ? createToDo : <TodoList />}</Fragment>
-			</Fragment>
-		)
+		<Fragment>
+			<Fragment>{displayTodo ? createToDo : <TodoList />}</Fragment>
+		</Fragment>
 	);
 };
 Dashboard.propType = {
 	gettodo: PropTypes.func.isRequired,
 	addtodo: PropTypes.func.isRequired,
+	user: PropTypes.object,
 	todo: PropTypes.array,
 	loading: PropTypes.bool,
 	isAuthenticated: PropTypes.bool.isRequired,
 };
 const mapStateToProps = (state) => ({
 	loading: state.todo.loading,
+	user: state.auth.user,
 	todo: state.todo.todo,
 	isAuthenticated: state.auth.isAuthenticated,
 });

@@ -29,7 +29,7 @@ app.use(morgan('tiny'));
 
 module.exports = function (app) {
 	// add other server routes to path array
-	app.use(proxy(['/api'], { target: 'http://localhost:7000' }));
+	app.use(proxy(['/api'], { target: 'http://localhost:5000' }));
 };
 app.use('/api/register', require('./router/register'));
 app.use('/api/signin', require('./router/auth'));

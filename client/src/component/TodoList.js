@@ -24,7 +24,11 @@ const TodoList = ({ loading, todo, gettodo }) => {
 			<td>{moment(data.dueDate).from(data.createdDate)}</td>
 			<td>
 				{' '}
-				<button className='table-btn'>{'    '}Delete</button>
+				<button
+					onClick={(e) => console.log(data._id)}
+					className='table-btn'>
+					{'    '}Delete
+				</button>
 			</td>
 		</tr>
 	));

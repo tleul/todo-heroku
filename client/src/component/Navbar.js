@@ -29,8 +29,8 @@ const Navbar = ({ isAuthenticated, logout, user }) => {
 		<nav className='navbar bg-dark'>
 			<h1>
 				<Link to='/'>
-					<i className='fas fa-house-user'></i>HELOO{' '}
-					{user && user.name}
+					<i className='fas fa-house-user'></i>Welcome{' '}
+					{isAuthenticated ? user.name : ''}
 				</Link>
 			</h1>
 			<ul>
