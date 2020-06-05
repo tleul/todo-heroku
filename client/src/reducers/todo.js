@@ -1,7 +1,7 @@
-import { GETTODO, CLEAR_TODO } from './../actions/types';
+import { GETTODO, CLEAR_TODO, DELETE_TODO } from './../actions/types';
 
 const initialState = {
-	todo: [],
+	todoList: [],
 	loading: false,
 };
 
@@ -11,12 +11,17 @@ export default function (state = initialState, action) {
 		case GETTODO:
 			console.log(payload);
 			return {
-				todo: payload.data,
+				todoList: payload,
+				loading: true,
+			};
+		case DELETE_TODO:
+			return {
+				todoList: payload,
 				loading: true,
 			};
 		case CLEAR_TODO:
 			return {
-				todo: null,
+				todoList: null,
 				loading: false,
 			};
 		default:

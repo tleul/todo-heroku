@@ -16,6 +16,9 @@ const Dashboard = ({
 	addtodo,
 	isAuthenticated,
 }) => {
+	useEffect(() => {
+		gettodo();
+	}, []);
 	const [todoForm, setTodoform] = useState({
 		todotext: '',
 		todotitle: '',

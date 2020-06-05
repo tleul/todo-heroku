@@ -9,9 +9,11 @@ import {
 	LOGOUT,
 	LOADUSER_FAIL,
 	CLEAR_TODO,
+	GETTODO,
 } from './types';
 
 import setauthToken from './../api/setToken';
+import { gettodo } from './todoaction';
 export const loaduser = () => async (dispatch) => {
 	if (localStorage.token) {
 		setauthToken(localStorage.token);
@@ -47,6 +49,7 @@ export const login = ({ email, password }) => async (dispatch) => {
 			payload: res.data,
 		});
 		dispatch(loaduser());
+		dispatch(gettodo());
 	} catch (error) {
 		console.log(error);
 		dispatch({
