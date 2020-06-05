@@ -20,18 +20,20 @@ const Dashboard = ({
 	useEffect(() => {
 		gettodo();
 	}, []);
-
 	if (!isAuthenticated) {
 		return <Redirect to='/' />;
 	}
-
+	console.log(todo);
 	return (
 		<Fragment>
 			<section className='container'>
 				<div className='box'>
 					<TodoForm />
 				</div>
-				<div className='side-todo'>{loading && <TodoList />}</div>
+				<div className='side-todo'>
+					{' '}
+					<TodoList />
+				</div>
 			</section>
 		</Fragment>
 	);

@@ -12,6 +12,8 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { loaduser } from './actions/auth';
 import setauthToken from './api/setToken';
+import { gettodo } from './actions/todoaction';
+
 if (localStorage.token) {
 	setauthToken(localStorage.token);
 }
