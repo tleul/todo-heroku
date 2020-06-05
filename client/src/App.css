@@ -67,14 +67,29 @@ input {
 	background-color: royalblue;
 }
 .container {
-	max-width: 1100px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
 	margin: auto;
 	overflow: hidden;
 	padding: 0 2rem;
-	margin-top: 6rem;
+	margin-left: 0;
+	margin-top: 2rem;
 	margin-bottom: 3rem;
+	padding-right: 0;
 }
+.box {
+	margin: 0;
+	padding: 10px;
+}
+.side-todo {
+	border: #dc3545;
+	border-style: groove;
+	margin: 0;
 
+	text-align: center;
+}
 .x-large {
 	font-size: 4rem;
 	line-height: 1.2;
