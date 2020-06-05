@@ -41,12 +41,13 @@ router.post(
 					todo: newtodo,
 				});
 				const todoUser = await userTodo.save();
-				return res.json(todoUser);
+				return res.json(todoUser.todo);
 			}
 			userTodo.todo.unshift(newtodo);
 
 			const todoUser = await userTodo.save();
-			return res.json(todoUser);
+			console.log(todoUser.todo);
+			res.json(todoUser.todo);
 		} catch (error) {
 			console.log(error.message);
 		}
