@@ -57,6 +57,7 @@ router.post(
 //Remove todo
 router.delete('/:id', auth, async (req, res) => {
 	try {
+		console.log(req.params.id);
 		const usertodo = await UserTodo.findOne({ user: req.user.id });
 
 		const removeIndex = usertodo.todo
@@ -64,8 +65,8 @@ router.delete('/:id', auth, async (req, res) => {
 			.indexOf(req.params.id);
 
 		usertodo.todo.splice(removeIndex, 1);
-		await usertodo.save();
-		res.json(usertodo);
+		userTodo = await usertodo.save();
+		res.json(usertodo.todo);
 	} catch (error) {
 		console.log(error.message);
 	}
