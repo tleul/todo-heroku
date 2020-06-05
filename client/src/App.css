@@ -303,6 +303,10 @@ img {
 
 /* Mobile Styles */
 @media (max-width: 700px) {
+	.side-todo {
+		display: block;
+		width: 100%;
+	}
 	.form-section {
 		padding-top: 10rem;
 	}
@@ -312,6 +316,9 @@ img {
 	.container {
 		color: black;
 		margin-top: 3rem;
+
+		display: flex;
+		flex-direction: column;
 	}
 	.landing-inner {
 		margin-top: 2rem;

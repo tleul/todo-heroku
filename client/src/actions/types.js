@@ -8,3 +8,4 @@ export const LOGOUT = 'LOGOUT';
 export const LOADUSER_FAIL = 'LOADUSER_FAIL';
 export const GETTODO = 'GETTODO';
 export const CLEAR_TODO = 'CLEAR_TODO';
+export const DELETE_TODO = 'DELETE_TODO';

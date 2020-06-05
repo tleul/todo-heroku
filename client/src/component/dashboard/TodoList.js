@@ -6,14 +6,15 @@ import '../../tabel.css';
 import { connect } from 'react-redux';
 import { gettodo } from '../../actions/todoaction';
 import { Redirect } from 'react-router-dom';
-const TodoList = ({ loading, todo, gettodo }) => {
+import { deleteTodo } from './../../actions/todoaction';
+const TodoList = ({ loading, todoList, gettodo, deleteTodo }) => {
 	useEffect(() => {
 		gettodo();
 	}, []);
 
 	const todoTabel =
-		todo &&
-		todo.map((data) => (
+		loading &&
+		todoList.map((data) => (
 			<tr key={data._id} className='raw'>
 				<td>{data.todotitle}</td>
 				<td>{data.todotext}</td>
@@ -27,14 +28,13 @@ const TodoList = ({ loading, todo, gettodo }) => {
 				<td>
 					{' '}
 					<button
-						onClick={(e) => console.log(data._id)}
+						onClick={(e) => deleteTodo(data._id)}
 						className='table-btn'>
 						{'    '}Delete
 					</button>
 				</td>
 			</tr>
 		));
-
 	return (
 		<Fragment>
 			<table role='table'>
@@ -65,12 +65,13 @@ const TodoList = ({ loading, todo, gettodo }) => {
 };
 
 TodoList.propTypes = {
-	todo: PropTypes.array.isRequired,
+	todoList: PropTypes.array,
 	loading: PropTypes.bool.isRequired,
 	gettodo: PropTypes.func.isRequired,
+	deleteTodo: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({
-	todo: state.todo.todo,
+	todoList: state.todo.todoList,
 	loading: state.todo.loading,
 });
-export default connect(mapStateToProps, { gettodo })(TodoList);
+export default connect(mapStateToProps, { gettodo, deleteTodo })(TodoList);
