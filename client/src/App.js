@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './component/Home';
+import Home from './component/layout/Home';
 
 import Signup from './component/auth/Signup';
 import './App.css';
-import Navbar from './component/Navbar';
+import Navbar from './component/layout/Navbar';
 import Login from './component/auth/Login';
 
-import Dashboard from './component/Dashboard';
+import Dashboard from './component/dashboard/Dashboard';
 import { Provider } from 'react-redux';
 import store from './store';
 import { loaduser } from './actions/auth';
 import setauthToken from './api/setToken';
+import { gettodo } from './actions/todoaction';
+
 if (localStorage.token) {
 	setauthToken(localStorage.token);
 }

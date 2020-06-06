@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import { logout } from '../actions/auth';
+import { logout } from '../../actions/auth';
 const Navbar = ({ isAuthenticated, logout, user }) => {
 	const userPage = (
 		<ul>
